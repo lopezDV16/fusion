@@ -1,4 +1,5 @@
 import { type PrintService } from "@/lib/catalog";
+import Image from "next/image";
 
 type ServiceCardProps = {
   service: PrintService;
@@ -6,14 +7,21 @@ type ServiceCardProps = {
 
 export function ServiceCard({ service }: ServiceCardProps) {
   const visualStyle = {
-    background: `radial-gradient(circle at 20% 20%, ${service.visual.highlight}, transparent 52%),
-      linear-gradient(140deg, ${service.visual.base}, #0a0b0f 72%)`,
+    background: `linear-gradient(140deg, ${service.visual.base}, #0a0b0f 72%)`,
   };
 
   return (
     <article className="overflow-hidden rounded-3xl border border-white/10 bg-[#0f1218]">
       <div className="relative h-44 border-b border-white/10 p-5" style={visualStyle}>
-        <span className="rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] tracking-[0.2em] text-zinc-100 uppercase">
+        <Image
+          src={service.image}
+          alt={service.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 33vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#07080bcc] to-[#07080b33]" />
+        <span className="relative z-10 rounded-full border border-white/15 bg-black/30 px-3 py-1 text-[10px] tracking-[0.2em] text-zinc-100 uppercase">
           {service.visual.label}
         </span>
         <div
@@ -32,7 +40,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
 
         <div className="grid gap-2 text-sm text-zinc-300">
           {service.points.map((point) => (
-            <p key={point} className="rounded-xl border border-white/10 bg-white/4 px-3 py-2">
+            <p key={point} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
               {point}
             </p>
           ))}

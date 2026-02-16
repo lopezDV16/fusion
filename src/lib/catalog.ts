@@ -10,6 +10,7 @@ export type VisualTone = {
 
 export type Product = {
   id: string;
+  image: string;
   name: string;
   tagline: string;
   description: string;
@@ -24,6 +25,7 @@ export type Product = {
 
 export type PrintService = {
   id: string;
+  image: string;
   title: string;
   summary: string;
   startingPrice: string;
@@ -34,6 +36,7 @@ export type PrintService = {
 
 export type PortfolioItem = {
   id: string;
+  image: string;
   title: string;
   client: string;
   category: string;
@@ -57,6 +60,7 @@ export const productColorLabels: Record<ProductColor, string> = {
 export const products: Product[] = [
   {
     id: "urban-shadow-hoodie",
+    image: "/images/products/urban-shadow-hoodie.svg",
     name: "Urban Shadow Hoodie",
     tagline: "Heavyweight street cut",
     description:
@@ -76,6 +80,7 @@ export const products: Product[] = [
   },
   {
     id: "mono-strike-tee",
+    image: "/images/products/mono-strike-tee.svg",
     name: "Mono Strike Tee",
     tagline: "Minimal fit, premium feel",
     description:
@@ -95,6 +100,7 @@ export const products: Product[] = [
   },
   {
     id: "signal-core-tee",
+    image: "/images/products/signal-core-tee.svg",
     name: "Signal Core Tee",
     tagline: "Brand-ready drop item",
     description:
@@ -114,6 +120,7 @@ export const products: Product[] = [
   },
   {
     id: "district-cap",
+    image: "/images/products/district-cap.svg",
     name: "District Cap",
     tagline: "Structured front panel",
     description:
@@ -132,6 +139,7 @@ export const products: Product[] = [
   },
   {
     id: "crew-field-uniform",
+    image: "/images/products/crew-field-uniform.svg",
     name: "Crew Field Uniform",
     tagline: "Designed for teams",
     description:
@@ -151,6 +159,7 @@ export const products: Product[] = [
   },
   {
     id: "impact-orange-hoodie",
+    image: "/images/products/impact-orange-hoodie.svg",
     name: "Impact Orange Hoodie",
     tagline: "Accent collection",
     description:
@@ -169,6 +178,7 @@ export const products: Product[] = [
   },
   {
     id: "line-runner-cap",
+    image: "/images/products/line-runner-cap.svg",
     name: "Line Runner Cap",
     tagline: "Clean embroidery zone",
     description:
@@ -187,6 +197,7 @@ export const products: Product[] = [
   },
   {
     id: "studio-white-uniform",
+    image: "/images/products/studio-white-uniform.svg",
     name: "Studio White Uniform",
     tagline: "Corporate-ready uniform",
     description:
@@ -208,6 +219,7 @@ export const products: Product[] = [
 export const printServices: PrintService[] = [
   {
     id: "dtf",
+    image: "/images/services/dtf.svg",
     title: "DTF Printing",
     summary:
       "طباعة DTF بدقة ألوان عالية وثبات ممتاز للغسيل اليومي على مختلف أنواع الأقمشة.",
@@ -227,6 +239,7 @@ export const printServices: PrintService[] = [
   },
   {
     id: "custom",
+    image: "/images/services/custom.svg",
     title: "Custom Branding",
     summary:
       "خدمة تجهيز قطع خاصة للبراند من اختيار الخامة، الباترن، الطباعة، التغليف، والهوية.",
@@ -246,6 +259,7 @@ export const printServices: PrintService[] = [
   },
   {
     id: "bulk",
+    image: "/images/services/bulk.svg",
     title: "Bulk Production",
     summary:
       "طلبات كميات كبيرة للشركات والفرق مع نظام تسعير واضح وضبط جودة مرحلي.",
@@ -268,6 +282,7 @@ export const printServices: PrintService[] = [
 export const portfolioItems: PortfolioItem[] = [
   {
     id: "lookbook-night-shift",
+    image: "/images/portfolio/lookbook-night-shift.svg",
     title: "Night Shift Capsule",
     client: "NTHR Brand",
     category: "Streetwear Launch",
@@ -280,6 +295,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "lookbook-fitness-club",
+    image: "/images/portfolio/lookbook-fitness-club.svg",
     title: "Gym Team Uniform Pack",
     client: "Core House",
     category: "Corporate Uniform",
@@ -292,6 +308,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "lookbook-cafe-identity",
+    image: "/images/portfolio/lookbook-cafe-identity.svg",
     title: "Cafe Identity Set",
     client: "Roast Theory",
     category: "Hospitality",
@@ -304,6 +321,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "lookbook-tech-event",
+    image: "/images/portfolio/lookbook-tech-event.svg",
     title: "Tech Event Merch",
     client: "Stack Expo",
     category: "Event Production",
@@ -316,6 +334,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "lookbook-retail-team",
+    image: "/images/portfolio/lookbook-retail-team.svg",
     title: "Retail Team Essentials",
     client: "Marketline",
     category: "Retail Uniform",
@@ -328,6 +347,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "lookbook-campus-club",
+    image: "/images/portfolio/lookbook-campus-club.svg",
     title: "Campus Club Drop",
     client: "U-Club",
     category: "Student Merch",

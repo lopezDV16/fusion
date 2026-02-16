@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { ProductCard } from "@/components/product-card";
@@ -66,6 +67,15 @@ export default function HomePage() {
             </div>
 
             <div className="relative overflow-hidden rounded-[2rem] border border-white/15 bg-[#0e131c] p-7">
+              <Image
+                src="/images/hero/fusion-hero.svg"
+                alt="Fusion hero visual"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-[#07080b88] to-[#07080be8]" />
               <div
                 className="absolute -left-24 top-0 h-52 w-52 rounded-full blur-3xl"
                 style={{ background: "#ff6a00" }}
@@ -74,7 +84,7 @@ export default function HomePage() {
                 className="absolute -right-20 bottom-0 h-52 w-52 rounded-full blur-3xl"
                 style={{ background: "#3b4f6f" }}
               />
-              <div className="relative space-y-5">
+              <div className="relative z-10 space-y-5">
                 <div className="rounded-2xl border border-white/12 bg-black/25 p-5">
                   <p className="text-xs tracking-[0.2em] text-zinc-300 uppercase">Focus</p>
                   <p className="mt-2 font-heading text-4xl leading-none text-white sm:text-5xl">
