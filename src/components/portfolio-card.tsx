@@ -1,5 +1,6 @@
 import { type PortfolioItem } from "@/lib/catalog";
 import Image from "next/image";
+import { LocaleText } from "@/components/locale-text";
 
 type PortfolioCardProps = {
   item: PortfolioItem;
@@ -30,9 +31,15 @@ export function PortfolioCard({ item, className }: PortfolioCardProps) {
       </span>
 
       <div className="relative z-10 mt-20 space-y-2">
-        <p className="text-xs text-zinc-300 uppercase tracking-[0.18em]">{item.category}</p>
-        <h3 className="font-heading text-3xl leading-none tracking-wide text-white">{item.title}</h3>
-        <p className="text-sm text-zinc-300">{item.client}</p>
+        <p className="text-xs text-zinc-300 uppercase tracking-[0.18em]">
+          <LocaleText ar={item.categoryAr} en={item.category} />
+        </p>
+        <h3 className="font-heading text-3xl leading-none tracking-wide text-white">
+          <LocaleText ar={item.titleAr} en={item.title} />
+        </h3>
+        <p className="text-sm text-zinc-300">
+          <LocaleText ar={item.clientAr} en={item.client} />
+        </p>
       </div>
 
       <div

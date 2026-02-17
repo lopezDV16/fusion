@@ -1,9 +1,16 @@
-const formatter = new Intl.NumberFormat("ar-SA", {
-  style: "currency",
-  currency: "SAR",
-  maximumFractionDigits: 0,
-});
+const formatters = {
+  ar: new Intl.NumberFormat("ar-SA", {
+    style: "currency",
+    currency: "SAR",
+    maximumFractionDigits: 0,
+  }),
+  en: new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "SAR",
+    maximumFractionDigits: 0,
+  }),
+};
 
-export function formatCurrency(value: number) {
-  return formatter.format(value);
+export function formatCurrency(value: number, locale: "ar" | "en" = "ar") {
+  return formatters[locale].format(value);
 }

@@ -1,7 +1,9 @@
+import type { ReactNode } from "react";
+
 type SectionHeadingProps = {
-  kicker: string;
-  title: string;
-  description?: string;
+  kicker: ReactNode;
+  title: ReactNode;
+  description?: ReactNode;
   centered?: boolean;
 };
 
@@ -11,7 +13,7 @@ export function SectionHeading({
   description,
   centered = false,
 }: SectionHeadingProps) {
-  const alignment = centered ? "text-center items-center" : "text-right items-start";
+  const alignment = centered ? "text-center items-center" : "text-start items-start";
 
   return (
     <div className={`flex flex-col gap-3 ${alignment}`}>

@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07080b;
-  --foreground: #f3f5f8;
+  --background: #060606;
+  --foreground: #f5f5f5;
+  --logo-badge: #030303;
+  --logo-mark: #f8f8f8;
+  --logo-word: #f2f2f2;
+  --site-filter: grayscale(1);
+}
+
+:root[data-theme="light"] {
+  --site-filter: grayscale(1) invert(1);
 }
 
 @theme inline {
@@ -10,6 +18,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-heading: var(--font-heading);
+  --font-brand: var(--font-brand-serif);
 }
 
 * {
@@ -24,11 +33,13 @@ body {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 12% -6%, rgba(255, 106, 0, 0.25), transparent 34%),
-    radial-gradient(circle at 82% 0%, rgba(73, 82, 102, 0.35), transparent 35%),
+    radial-gradient(circle at 12% -6%, rgba(255, 255, 255, 0.1), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(255, 255, 255, 0.06), transparent 35%),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-body), sans-serif;
+  filter: var(--site-filter);
+  transition: filter 220ms ease;
 }
 
 a {
@@ -36,7 +47,24 @@ a {
   text-decoration: none;
 }
 
+:root .locale-en {
+  display: none;
+}
+
+:root[data-locale="ar"] .locale-en {
+  display: none;
+}
+
+:root[data-locale="en"] .locale-ar {
+  display: none;
+}
+
+:root[data-locale="en"] .locale-en,
+:root[data-locale="ar"] .locale-ar {
+  display: inline;
+}
+
 ::selection {
-  background: rgba(255, 106, 0, 0.35);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;
 }

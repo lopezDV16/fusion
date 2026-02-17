@@ -4,6 +4,7 @@ import { Container } from "@/components/container";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { SectionHeading } from "@/components/section-heading";
 import { ServiceCard } from "@/components/service-card";
+import { LocaleText } from "@/components/locale-text";
 import { portfolioItems, printServices } from "@/lib/catalog";
 
 export const metadata: Metadata = {
@@ -14,21 +15,21 @@ export const metadata: Metadata = {
 const packages = [
   {
     name: "Starter Batch",
-    target: "للمشاريع الجديدة",
-    details: "50 - 120 قطعة",
-    price: "من 4,500 ر.س",
+    target: { ar: "للمشاريع الجديدة", en: "For New Projects" },
+    details: { ar: "50 - 120 قطعة", en: "50 - 120 pieces" },
+    price: { ar: "من 4,500 ر.س", en: "From SAR 4,500" },
   },
   {
     name: "Brand Growth",
-    target: "للإطلاقات المتكررة",
-    details: "120 - 300 قطعة",
-    price: "من 9,800 ر.س",
+    target: { ar: "للإطلاقات المتكررة", en: "For Repeated Drops" },
+    details: { ar: "120 - 300 قطعة", en: "120 - 300 pieces" },
+    price: { ar: "من 9,800 ر.س", en: "From SAR 9,800" },
   },
   {
     name: "Corporate Bulk",
-    target: "للشركات والفعاليات",
-    details: "300+ قطعة",
-    price: "عرض سعر مخصص",
+    target: { ar: "للشركات والفعاليات", en: "For Companies & Events" },
+    details: { ar: "300+ قطعة", en: "300+ pieces" },
+    price: { ar: "عرض سعر مخصص", en: "Custom Quotation" },
   },
 ];
 
@@ -39,17 +40,19 @@ export default function ServicesPage() {
         <div className="rounded-[2rem] border border-white/10 bg-[#101722] p-8">
           <p className="text-xs tracking-[0.2em] text-zinc-300 uppercase">Print Services</p>
           <h1 className="mt-3 font-heading text-6xl leading-none tracking-[0.08em] text-white">
-            خدمات الطباعة
+            <LocaleText ar="خدمات الطباعة" en="Print Services" />
           </h1>
-          <p className="mt-3 max-w-3xl text-sm leading-8 text-zinc-300">
-            من طباعة DTF السريعة إلى تجهيز براند كامل أو إنتاج كميات للشركات. كل خدمة لها
-            مسار واضح وجودة قابلة للقياس.
-          </p>
+          <LocaleText
+            as="p"
+            className="mt-3 max-w-3xl text-sm leading-8 text-zinc-300"
+            ar="من طباعة DTF السريعة إلى تجهيز براند كامل أو إنتاج كميات للشركات. كل خدمة لها مسار واضح وجودة قابلة للقياس."
+            en="From fast DTF jobs to full brand preparation and company-scale production, every service follows a clear measurable workflow."
+          />
           <Link
             href="/custom-order"
-            className="mt-6 inline-flex rounded-full border border-[#ff6a00]/45 bg-[#ff6a00]/15 px-6 py-3 text-xs font-semibold tracking-[0.18em] text-white uppercase transition hover:bg-[#ff6a00]/30"
+            className="mt-6 inline-flex rounded-full border border-white/35 bg-white/14 px-6 py-3 text-xs font-semibold tracking-[0.18em] text-white uppercase transition hover:bg-white/24"
           >
-            ابدأ طلب طباعة
+            <LocaleText ar="ابدأ طلب طباعة" en="Start Print Order" />
           </Link>
         </div>
       </Container>
@@ -62,20 +65,27 @@ export default function ServicesPage() {
 
       <Container className="space-y-6">
         <SectionHeading
-          kicker="Process"
-          title="آلية العمل"
-          description="خطوات قصيرة وواضحة تضمن سرعة التنفيذ بدون فقدان الجودة."
+          kicker={<LocaleText ar="آلية العمل" en="Process" />}
+          title={<LocaleText ar="آلية العمل" en="How We Work" />}
+          description={
+            <LocaleText
+              ar="خطوات قصيرة وواضحة تضمن سرعة التنفيذ بدون فقدان الجودة."
+              en="Short and clear steps that keep delivery fast without compromising quality."
+            />
+          }
         />
         <div className="grid gap-4 md:grid-cols-4">
           {[
-            { step: "01", label: "استلام التفاصيل والملف" },
-            { step: "02", label: "مراجعة فنية + عرض سعر" },
-            { step: "03", label: "عينة اعتماد سريعة" },
-            { step: "04", label: "إنتاج وتسليم" },
+            { step: "01", ar: "استلام التفاصيل والملف", en: "Receive brief and file" },
+            { step: "02", ar: "مراجعة فنية + عرض سعر", en: "Technical review + quote" },
+            { step: "03", ar: "عينة اعتماد سريعة", en: "Fast approval sample" },
+            { step: "04", ar: "إنتاج وتسليم", en: "Production and delivery" },
           ].map((item) => (
             <article key={item.step} className="rounded-2xl border border-white/10 bg-[#0f1218] p-5">
               <p className="text-xs tracking-[0.2em] text-zinc-400">{item.step}</p>
-              <p className="mt-3 font-heading text-3xl leading-none text-white">{item.label}</p>
+              <p className="mt-3 font-heading text-3xl leading-none text-white">
+                <LocaleText ar={item.ar} en={item.en} />
+              </p>
             </article>
           ))}
         </div>
@@ -83,9 +93,14 @@ export default function ServicesPage() {
 
       <Container className="space-y-6">
         <SectionHeading
-          kicker="Work Samples"
-          title="أمثلة أعمال"
-          description="نماذج حقيقية من مشاريع نفذناها للبراندات والفرق والشركات."
+          kicker={<LocaleText ar="نماذج الأعمال" en="Work Samples" />}
+          title={<LocaleText ar="أمثلة أعمال" en="Work Examples" />}
+          description={
+            <LocaleText
+              ar="نماذج حقيقية من مشاريع نفذناها للبراندات والفرق والشركات."
+              en="Real samples from projects delivered for brands, teams, and companies."
+            />
+          }
         />
         <div className="grid auto-rows-[220px] gap-4 md:grid-cols-3">
           {portfolioItems.slice(0, 3).map((item, index) => (
@@ -100,19 +115,30 @@ export default function ServicesPage() {
 
       <Container className="space-y-6">
         <SectionHeading
-          kicker="Pricing"
-          title="باقات تقديرية"
-          description='يمكنك اختيار باقة مبدئية أو طلب "عرض سعر" مخصص حسب المواصفات.'
+          kicker={<LocaleText ar="التسعير" en="Pricing" />}
+          title={<LocaleText ar="باقات تقديرية" en="Estimated Packages" />}
+          description={
+            <LocaleText
+              ar='يمكنك اختيار باقة مبدئية أو طلب "عرض سعر" مخصص حسب المواصفات.'
+              en='Choose an initial package or request a custom quotation based on your specs.'
+            />
+          }
         />
         <div className="grid gap-4 md:grid-cols-3">
           {packages.map((pkg) => (
             <article key={pkg.name} className="rounded-3xl border border-white/10 bg-[#0f1218] p-6">
-              <p className="text-xs tracking-[0.2em] text-zinc-400 uppercase">{pkg.target}</p>
+              <p className="text-xs tracking-[0.2em] text-zinc-400 uppercase">
+                <LocaleText ar={pkg.target.ar} en={pkg.target.en} />
+              </p>
               <h3 className="mt-3 font-heading text-4xl leading-none tracking-wide text-white">
                 {pkg.name}
               </h3>
-              <p className="mt-3 text-sm text-zinc-300">{pkg.details}</p>
-              <p className="mt-4 font-semibold text-zinc-100">{pkg.price}</p>
+              <p className="mt-3 text-sm text-zinc-300">
+                <LocaleText ar={pkg.details.ar} en={pkg.details.en} />
+              </p>
+              <p className="mt-4 font-semibold text-zinc-100">
+                <LocaleText ar={pkg.price.ar} en={pkg.price.en} />
+              </p>
             </article>
           ))}
         </div>

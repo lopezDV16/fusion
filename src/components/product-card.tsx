@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { formatCurrency } from "@/lib/format";
+import { LocaleText } from "@/components/locale-text";
 import {
   type Product,
   productCategoryLabels,
+  productCategoryLabelsEn,
   productColorLabels,
+  productColorLabelsEn,
 } from "@/lib/catalog";
 
 type ProductCardProps = {
@@ -41,25 +44,33 @@ export function ProductCard({ product }: ProductCardProps) {
           <h3 className="font-heading text-3xl leading-none tracking-wide text-white">
             {product.name}
           </h3>
-          <p className="text-sm text-zinc-300">{product.tagline}</p>
+          <LocaleText as="p" className="text-sm text-zinc-300" ar={product.taglineAr} en={product.tagline} />
         </div>
 
         <div className="flex flex-wrap gap-2 text-xs">
           <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-            {productCategoryLabels[product.category]}
+            <LocaleText
+              ar={productCategoryLabels[product.category]}
+              en={productCategoryLabelsEn[product.category]}
+            />
           </span>
           <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-            {productColorLabels[product.color]}
+            <LocaleText ar={productColorLabels[product.color]} en={productColorLabelsEn[product.color]} />
           </span>
         </div>
 
         <div className="flex items-center justify-between">
-          <p className="font-heading text-3xl leading-none text-white">{formatCurrency(product.price)}</p>
+          <p className="font-heading text-3xl leading-none text-white">
+            <LocaleText
+              ar={formatCurrency(product.price, "ar")}
+              en={formatCurrency(product.price, "en")}
+            />
+          </p>
           <Link
             href={`/product/${product.id}`}
-            className="rounded-full border border-[#ff6a00]/40 bg-[#ff6a00]/12 px-4 py-2 text-xs font-semibold tracking-[0.18em] text-white uppercase transition hover:bg-[#ff6a00]/30"
+            className="rounded-full border border-white/35 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.18em] text-white uppercase transition hover:bg-white/22"
           >
-            عرض المنتج
+            <LocaleText ar="عرض المنتج" en="View Product" />
           </Link>
         </div>
       </div>

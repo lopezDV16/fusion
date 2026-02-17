@@ -22,18 +22,23 @@ const printMethodFee: Record<PrintTypeOption, number> = {
   embroidery: 18,
 };
 
-export const productTypeOptions: { value: ProductTypeOption; label: string }[] =
-  [
-    { value: "tshirt", label: "تيشيرت" },
-    { value: "hoodie", label: "هوديز" },
-    { value: "uniform", label: "يونيفورم شركات" },
-    { value: "cap", label: "كاب" },
-  ];
+export const productTypeOptions: {
+  value: ProductTypeOption;
+  label: { ar: string; en: string };
+}[] = [
+  { value: "tshirt", label: { ar: "تيشيرت", en: "T-Shirt" } },
+  { value: "hoodie", label: { ar: "هوديز", en: "Hoodie" } },
+  { value: "uniform", label: { ar: "يونيفورم شركات", en: "Corporate Uniform" } },
+  { value: "cap", label: { ar: "كاب", en: "Cap" } },
+];
 
-export const printTypeOptions: { value: PrintTypeOption; label: string }[] = [
-  { value: "dtf", label: "DTF Printing" },
-  { value: "screen", label: "Screen Printing" },
-  { value: "embroidery", label: "Embroidery" },
+export const printTypeOptions: {
+  value: PrintTypeOption;
+  label: { ar: string; en: string };
+}[] = [
+  { value: "dtf", label: { ar: "طباعة DTF", en: "DTF Printing" } },
+  { value: "screen", label: { ar: "طباعة سلك سكرين", en: "Screen Printing" } },
+  { value: "embroidery", label: { ar: "تطريز", en: "Embroidery" } },
 ];
 
 export function calculateEstimatedPrice(

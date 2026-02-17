@@ -1,25 +1,25 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand-logo";
 import { Container } from "@/components/container";
+import { LocaleText } from "@/components/locale-text";
+import { SiteControls } from "@/components/site-controls";
 
 const links = [
-  { href: "/", label: "الرئيسية" },
-  { href: "/shop", label: "المتجر" },
-  { href: "/services", label: "خدمات الطباعة" },
-  { href: "/custom-order", label: "طلب مخصص" },
-  { href: "/portfolio", label: "البورتفوليو" },
-  { href: "/about", label: "من نحن" },
-  { href: "/contact", label: "تواصل" },
+  { href: "/", ar: "الرئيسية", en: "Home" },
+  { href: "/shop", ar: "المتجر", en: "Shop" },
+  { href: "/services", ar: "خدمات الطباعة", en: "Print Services" },
+  { href: "/custom-order", ar: "طلب مخصص", en: "Custom Order" },
+  { href: "/portfolio", ar: "البورتفوليو", en: "Portfolio" },
+  { href: "/about", ar: "من نحن", en: "About" },
+  { href: "/contact", ar: "تواصل", en: "Contact" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07080b]/85 backdrop-blur-xl">
       <Container className="flex flex-wrap items-center justify-between gap-4 py-4">
-        <Link href="/" className="flex flex-col">
-          <span className="font-heading text-4xl leading-none tracking-[0.2em] text-white">FUSION</span>
-          <span className="text-[10px] tracking-[0.2em] text-zinc-400 uppercase">
-            Brand + Store + Print Lab
-          </span>
+        <Link href="/" className="shrink-0">
+          <BrandLogo size="md" withTagline />
         </Link>
 
         <nav className="flex flex-wrap items-center gap-1 text-sm">
@@ -29,17 +29,20 @@ export function SiteHeader() {
               href={link.href}
               className="rounded-full px-3 py-2 text-zinc-300 transition hover:bg-white/8 hover:text-white"
             >
-              {link.label}
+              <LocaleText ar={link.ar} en={link.en} />
             </Link>
           ))}
         </nav>
 
-        <Link
-          href="/custom-order"
-          className="rounded-full border border-[#ff6a00]/50 bg-[#ff6a00]/15 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-white uppercase transition hover:bg-[#ff6a00]/30"
-        >
-          اطلب الآن
-        </Link>
+        <div className="flex items-center gap-2">
+          <SiteControls />
+          <Link
+            href="/custom-order"
+            className="rounded-full border border-white/35 bg-white/10 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-white uppercase transition hover:bg-white/20"
+          >
+            <LocaleText ar="اطلب الآن" en="Order Now" />
+          </Link>
+        </div>
       </Container>
     </header>
   );

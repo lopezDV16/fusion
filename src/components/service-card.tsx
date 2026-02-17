@@ -1,5 +1,6 @@
 import { type PrintService } from "@/lib/catalog";
 import Image from "next/image";
+import { LocaleText } from "@/components/locale-text";
 
 type ServiceCardProps = {
   service: PrintService;
@@ -33,24 +34,26 @@ export function ServiceCard({ service }: ServiceCardProps) {
       <div className="space-y-4 p-6">
         <div className="space-y-2">
           <h3 className="font-heading text-3xl leading-none tracking-wide text-white">
-            {service.title}
+            <LocaleText ar={service.titleAr} en={service.title} />
           </h3>
-          <p className="text-sm leading-7 text-zinc-300">{service.summary}</p>
+          <LocaleText as="p" className="text-sm leading-7 text-zinc-300" ar={service.summary} en={service.summaryEn} />
         </div>
 
         <div className="grid gap-2 text-sm text-zinc-300">
-          {service.points.map((point) => (
+          {service.points.map((point, index) => (
             <p key={point} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
-              {point}
+              <LocaleText ar={point} en={service.pointsEn[index] ?? point} />
             </p>
           ))}
         </div>
 
         <div className="flex items-center justify-between text-xs">
           <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-            {service.turnaround}
+            <LocaleText ar={service.turnaround} en={service.turnaroundEn} />
           </span>
-          <span className="font-semibold text-zinc-100">{service.startingPrice}</span>
+          <span className="font-semibold text-zinc-100">
+            <LocaleText ar={service.startingPrice} en={service.startingPriceEn} />
+          </span>
         </div>
       </div>
     </article>
