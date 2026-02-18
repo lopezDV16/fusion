@@ -1,17 +1,10 @@
-import type { Metadata } from "next";
-import Link from "next/link";
+﻿import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
-import { LocaleText } from "@/components/locale-text";
 import { ProductCard } from "@/components/product-card";
-import {
-  products,
-  productCategoryLabels,
-  productCategoryLabelsEn,
-  productColorLabels,
-  productColorLabelsEn,
-} from "@/lib/catalog";
+import { products, productCategoryLabelsEn, productColorLabelsEn } from "@/lib/catalog";
 import { formatCurrency } from "@/lib/format";
 
 type ProductPageProps = {
@@ -30,13 +23,13 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "منتج غير موجود",
+      title: "Product Not Found",
     };
   }
 
   return {
     title: product.name,
-    description: product.description,
+    description: product.descriptionEn,
   };
 }
 
@@ -54,7 +47,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const visualStyle = {
     background: `radial-gradient(circle at 22% 18%, ${product.visual.highlight}, transparent 52%),
-      linear-gradient(140deg, ${product.visual.base}, #080a0f 72%)`,
+      linear-gradient(140deg, ${product.visual.base}, #1C1C1C 72%)`,
   };
 
   return (
@@ -74,13 +67,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#07080be0] to-[#07080b40]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1Ce0] to-[#1C1C1C40]" />
               <span className="relative z-10 inline-flex rounded-full border border-white/20 bg-black/30 px-4 py-1 text-[11px] tracking-[0.18em] text-zinc-100 uppercase">
                 {product.visual.label}
               </span>
               <div
                 className="absolute -right-12 bottom-0 h-40 w-40 rounded-full blur-3xl"
-                style={{ background: product.visual.accent }}
+                style={{ background: "var(--accent)", opacity: 0.72 }}
               />
             </div>
 
@@ -98,46 +91,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#07080bbb] to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1Cbb] to-transparent" />
                 </div>
               ))}
             </div>
           </section>
 
-          <section className="space-y-6 rounded-3xl border border-white/10 bg-[#0f1218] p-6">
+          <section className="space-y-6 rounded-3xl border border-white/10 bg-[#1C1C1C] p-6">
             <div className="space-y-3">
               <p className="text-xs tracking-[0.2em] text-zinc-400 uppercase">Product</p>
-              <h1 className="font-heading text-5xl leading-none tracking-[0.06em] text-white">
+              <h1 className="font-heading text-5xl leading-none tracking-[0.06em] text-[#E5E5E5]">
                 {product.name}
               </h1>
-              <p className="text-sm text-zinc-300">
-                <LocaleText ar={product.taglineAr} en={product.tagline} />
-              </p>
+              <p className="text-sm leading-8 text-zinc-200">{product.tagline}</p>
             </div>
 
             <div className="flex flex-wrap gap-2 text-xs">
-              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-                <LocaleText
-                  ar={productCategoryLabels[product.category]}
-                  en={productCategoryLabelsEn[product.category]}
-                />
+              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-200">
+                {productCategoryLabelsEn[product.category]}
               </span>
-              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-                <LocaleText ar={productColorLabels[product.color]} en={productColorLabelsEn[product.color]} />
+              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-200">
+                {productColorLabelsEn[product.color]}
               </span>
-              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-300">
-                <LocaleText ar={product.fabricAr} en={product.fabric} />
+              <span className="rounded-full border border-white/15 px-3 py-1 text-zinc-200">
+                {product.fabric}
               </span>
             </div>
 
-            <p className="text-sm leading-8 text-zinc-300">
-              <LocaleText ar={product.description} en={product.descriptionEn} />
-            </p>
+            <p className="text-sm leading-8 text-zinc-200">{product.descriptionEn}</p>
 
             <div>
-              <p className="mb-2 text-xs tracking-[0.18em] text-zinc-400 uppercase">
-                <LocaleText ar="المقاسات" en="Sizes" />
-              </p>
+              <p className="mb-2 text-xs tracking-[0.18em] text-zinc-400 uppercase">Sizes</p>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (
                   <button
@@ -152,17 +136,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-5">
-              <p className="font-heading text-4xl leading-none text-white">
-                <LocaleText
-                  ar={formatCurrency(product.price, "ar")}
-                  en={formatCurrency(product.price, "en")}
-                />
+              <p className="font-heading text-4xl leading-none text-[#E5E5E5]">
+                {formatCurrency(product.price, "en")}
               </p>
               <button
                 type="button"
-                className="rounded-full border border-white/35 bg-white/14 px-6 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase transition hover:bg-white/24"
+                className="rounded-full border border-[#1C1C1C] bg-[#1C1C1C] px-6 py-3 text-xs font-semibold tracking-[0.2em] text-[#E5E5E5] uppercase transition hover:bg-[#1C1C1C]"
               >
-                <LocaleText ar="أضف إلى السلة" en="Add to Cart" />
+                Add to Cart
               </button>
             </div>
 
@@ -170,7 +151,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               href="/custom-order"
               className="inline-flex rounded-full border border-white/20 bg-white/5 px-5 py-2 text-xs font-semibold tracking-[0.18em] text-zinc-100 uppercase transition hover:bg-white/12"
             >
-              <LocaleText ar="اطلب نسخة مخصصة من هذا المنتج" en="Request a Custom Version" />
+              Request a Custom Version
             </Link>
           </section>
         </div>
@@ -178,14 +159,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
       <Container className="space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="font-heading text-4xl tracking-[0.08em] text-white">
-            <LocaleText ar="منتجات مشابهة" en="Related Products" />
-          </h2>
+          <h2 className="font-heading text-4xl tracking-[0.08em] text-[#E5E5E5]">Related Products</h2>
           <Link
             href="/shop"
             className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-zinc-100 uppercase transition hover:bg-white/12"
           >
-            <LocaleText ar="العودة للمتجر" en="Back to Shop" />
+            Back to Shop
           </Link>
         </div>
 
@@ -196,14 +175,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
             ))}
           </div>
         ) : (
-          <div className="rounded-3xl border border-white/10 bg-[#0f1218] p-8 text-center text-zinc-300">
-            <LocaleText
-              ar="لا توجد منتجات مشابهة حاليًا في نفس الفئة."
-              en="No related products are available in this category yet."
-            />
+          <div className="rounded-3xl border border-white/10 bg-[#1C1C1C] p-8 text-center text-zinc-300">
+            No related products are available in this category yet.
           </div>
         )}
       </Container>
     </div>
   );
 }
+
+

@@ -1,5 +1,3 @@
-import { LocaleText } from "@/components/locale-text";
-
 type BrandLogoSize = "sm" | "md";
 
 type BrandLogoProps = {
@@ -44,12 +42,7 @@ export function BrandLogo({ size = "md", withTagline = false, className = "" }: 
         </span>
       </span>
       {withTagline ? (
-        <LocaleText
-          as="span"
-          className={`mt-1 text-zinc-400 uppercase ${styles.tagline}`}
-          ar="براند + متجر + معمل طباعة"
-          en="Brand + Store + Print Lab"
-        />
+        <span className={`mt-1 text-zinc-400 uppercase ${styles.tagline}`}>Brand + Store + Print Lab</span>
       ) : null}
     </span>
   );

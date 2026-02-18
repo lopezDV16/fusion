@@ -12,6 +12,7 @@ export type Product = {
   id: string;
   image: string;
   name: string;
+  badge?: "NEW" | "BESTSELLER" | "LIMITED";
   tagline: string;
   taglineAr: string;
   description: string;
@@ -87,6 +88,7 @@ export const products: Product[] = [
     id: "urban-shadow-hoodie",
     image: "/images/products/urban-shadow-hoodie.svg",
     name: "Urban Shadow Hoodie",
+    badge: "BESTSELLER",
     tagline: "Heavyweight street cut",
     taglineAr: "قصة ستريت وير ثقيلة",
     description:
@@ -111,6 +113,7 @@ export const products: Product[] = [
     id: "mono-strike-tee",
     image: "/images/products/mono-strike-tee.svg",
     name: "Mono Strike Tee",
+    badge: "NEW",
     tagline: "Minimal fit, premium feel",
     taglineAr: "قصة بسيطة وإحساس فاخر",
     description:
@@ -135,6 +138,7 @@ export const products: Product[] = [
     id: "signal-core-tee",
     image: "/images/products/signal-core-tee.svg",
     name: "Signal Core Tee",
+    badge: "LIMITED",
     tagline: "Brand-ready drop item",
     taglineAr: "قطعة جاهزة لإطلاق البراند",
     description:
@@ -182,6 +186,7 @@ export const products: Product[] = [
     id: "crew-field-uniform",
     image: "/images/products/crew-field-uniform.svg",
     name: "Crew Field Uniform",
+    badge: "BESTSELLER",
     tagline: "Designed for teams",
     taglineAr: "مصمم للفرق",
     description:
@@ -277,12 +282,12 @@ export const printServices: PrintService[] = [
   {
     id: "dtf",
     image: "/images/services/dtf.svg",
-    title: "DTF Printing",
+    title: "Ultra-Sharp Colors",
     titleAr: "طباعة DTF",
     summary:
       "طباعة DTF بدقة ألوان عالية وثبات ممتاز للغسيل اليومي على مختلف أنواع الأقمشة.",
     summaryEn:
-      "High-accuracy DTF printing with excellent wash durability across different fabric types.",
+      "Get premium detail and high color accuracy that stays crisp and durable after repeated washes.",
     startingPrice: "تبدأ من 18 ر.س / قطعة",
     startingPriceEn: "Starting at SAR 18 / piece",
     turnaround: "24-72 ساعة",
@@ -293,9 +298,9 @@ export const printServices: PrintService[] = [
       "اختبار جودة قبل الإنتاج الكامل",
     ],
     pointsEn: [
-      "Strong colors and fine detail",
-      "Ideal for small and medium batches",
-      "Quality check before full production",
+      "Sharper details that elevate your brand visuals",
+      "Reliable durability for daily wear and bulk orders",
+      "Fast production without sacrificing print quality",
     ],
     visual: {
       base: "#131313",
@@ -307,12 +312,12 @@ export const printServices: PrintService[] = [
   {
     id: "custom",
     image: "/images/services/custom.svg",
-    title: "Custom Branding",
+    title: "Full Brand Build",
     titleAr: "تجهيز براند مخصص",
     summary:
       "خدمة تجهيز قطع خاصة للبراند من اختيار الخامة، الباترن، الطباعة، التغليف، والهوية.",
     summaryEn:
-      "A full custom branding service from fabric and pattern selection to printing, packaging, and brand identity.",
+      "Launch a complete apparel identity from materials and fit to printing, packaging, and final presentation.",
     startingPrice: "حسب المشروع",
     startingPriceEn: "Project based",
     turnaround: "5-10 أيام",
@@ -323,9 +328,9 @@ export const printServices: PrintService[] = [
       "دعم للهوية والتغليف",
     ],
     pointsEn: [
-      "Guided support through the full brand journey",
-      "Samples before final production",
-      "Identity and packaging support",
+      "A clear production path from concept to delivery",
+      "Pre-production samples to reduce risk",
+      "Consistent quality across every batch and size",
     ],
     visual: {
       base: "#161616",
@@ -337,12 +342,12 @@ export const printServices: PrintService[] = [
   {
     id: "bulk",
     image: "/images/services/bulk.svg",
-    title: "Bulk Production",
+    title: "Scalable Bulk Output",
     titleAr: "إنتاج الكميات الكبيرة",
     summary:
       "طلبات كميات كبيرة للشركات والفرق مع نظام تسعير واضح وضبط جودة مرحلي.",
     summaryEn:
-      "Bulk production for companies and teams with transparent pricing and staged quality control.",
+      "Produce large quantities for teams and companies with stable quality, better rates, and predictable timelines.",
     startingPrice: "خصم يصل 18%",
     startingPriceEn: "Discount up to 18%",
     turnaround: "3-7 أيام",
@@ -353,9 +358,9 @@ export const printServices: PrintService[] = [
       "تقارير جودة لكل دفعة",
     ],
     pointsEn: [
-      "Competitive volume pricing",
-      "Logistics follow-up until delivery",
-      "Quality reports for each batch",
+      "Better unit economics at scale",
+      "Structured quality checks at each stage",
+      "Delivery coordination for operational reliability",
     ],
     visual: {
       base: "#121212",
@@ -501,3 +506,24 @@ export const whyFusionPoints = [
 ];
 
 export const featuredProducts = products.filter((product) => product.featured);
+
+export const trustBadges = [
+  "CORE HOUSE",
+  "NTHR BRAND",
+  "STACK EXPO",
+  "ROAST THEORY",
+  "MARKETLINE",
+];
+
+export const testimonials = [
+  {
+    quote:
+      "Fusion gave us the first merch batch that actually looked premium on camera and in hand.",
+    author: "NTHR Brand Team",
+  },
+  {
+    quote:
+      "From first sample to final delivery, the process was clear and fast with no quality drop.",
+    author: "Core House Operations",
+  },
+];

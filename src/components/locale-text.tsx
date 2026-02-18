@@ -9,16 +9,12 @@ type LocaleTextProps<T extends ElementType = "span"> = {
 
 export function LocaleText<T extends ElementType = "span">({
   as,
-  ar,
+  ar: _ar,
   en,
   className,
 }: LocaleTextProps<T>) {
   const Tag = (as ?? "span") as ElementType;
+  void _ar;
 
-  return (
-    <Tag className={className}>
-      <span className="locale-ar">{ar}</span>
-      <span className="locale-en">{en}</span>
-    </Tag>
-  );
+  return <Tag className={className}>{en}</Tag>;
 }

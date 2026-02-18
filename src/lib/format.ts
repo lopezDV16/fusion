@@ -11,6 +11,6 @@ const formatters = {
   }),
 };
 
-export function formatCurrency(value: number, locale: "ar" | "en" = "ar") {
+export function formatCurrency(value: number, locale: "ar" | "en" = "en") {
   return formatters[locale].format(value);
 }

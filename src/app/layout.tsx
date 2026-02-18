@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope, Teko } from "next/font/google";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -23,11 +24,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fusion Platform | Brand + Store + Print Lab",
+    default: "Fusion Platform | Premium Streetwear & Custom Printing",
     template: "%s | Fusion Platform",
   },
   description:
-    "Fusion منصة تجمع المتجر وخدمات الطباعة والبورتفوليو بطابع Streetwear Premium.",
+    "Fusion combines premium streetwear, custom printing, and portfolio-grade production in one focused platform.",
 };
 
 export default function RootLayout({
@@ -36,27 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function () {
-  try {
-    var theme = localStorage.getItem("fusion-theme") || "dark";
-    var locale = localStorage.getItem("fusion-locale") || "ar";
-    var root = document.documentElement;
-    root.dataset.theme = theme === "light" ? "light" : "dark";
-    root.dataset.locale = locale === "en" ? "en" : "ar";
-    root.lang = root.dataset.locale;
-    root.dir = root.dataset.locale === "ar" ? "rtl" : "ltr";
-  } catch (error) {}
-})();`,
-          }}
-        />
-      </head>
+    <html lang="en" dir="ltr" data-locale="en">
       <body
         className={`${manrope.variable} ${teko.variable} ${cormorant.variable} bg-background text-foreground antialiased`}
       >
+        <ScrollReveal />
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

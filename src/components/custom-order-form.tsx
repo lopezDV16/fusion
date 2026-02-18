@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { type FormEvent, useMemo, useState } from "react";
 import { LocaleText } from "@/components/locale-text";
@@ -48,52 +48,52 @@ export function CustomOrderForm() {
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-      <section className="space-y-6 rounded-3xl border border-white/10 bg-[#0f1218] p-6">
+      <section className="space-y-6 rounded-3xl border border-white/10 bg-[#1C1C1C] p-6">
         <div className="grid gap-5 sm:grid-cols-2">
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="الاسم الكامل" en="Full Name" />
+              <LocaleText ar="Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„" en="Full Name" />
             </span>
             <input
               required
               type="text"
-              placeholder={locale === "ar" ? "مثال: أحمد خالد" : "Example: Ahmed Khaled"}
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              placeholder={locale === "ar" ? "Ù…Ø«Ø§Ù„: Ø£Ø­Ù…Ø¯ Ø®Ø§Ù„Ø¯" : "Example: Ahmed Khaled"}
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             />
           </label>
 
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="اسم الشركة / البراند" en="Company / Brand Name" />
+              <LocaleText ar="Ø§Ø³Ù… Ø§Ù„Ø´Ø±ÙƒØ© / Ø§Ù„Ø¨Ø±Ø§Ù†Ø¯" en="Company / Brand Name" />
             </span>
             <input
               type="text"
               placeholder="Fusion Clothing"
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             />
           </label>
 
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="رقم الجوال" en="Phone Number" />
+              <LocaleText ar="Ø±Ù‚Ù… Ø§Ù„Ø¬ÙˆØ§Ù„" en="Phone Number" />
             </span>
             <input
               required
               type="tel"
               placeholder="+966 5X XXX XXXX"
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             />
           </label>
 
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="البريد الإلكتروني" en="Email Address" />
+              <LocaleText ar="Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ" en="Email Address" />
             </span>
             <input
               required
               type="email"
               placeholder="brand@domain.com"
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             />
           </label>
         </div>
@@ -101,12 +101,12 @@ export function CustomOrderForm() {
         <div className="grid gap-5 sm:grid-cols-3">
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="نوع المنتج" en="Product Type" />
+              <LocaleText ar="Ù†ÙˆØ¹ Ø§Ù„Ù…Ù†ØªØ¬" en="Product Type" />
             </span>
             <select
               value={productType}
               onChange={(event) => setProductType(event.target.value as ProductTypeOption)}
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             >
               {productTypeOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -118,12 +118,12 @@ export function CustomOrderForm() {
 
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="طريقة الطباعة" en="Print Method" />
+              <LocaleText ar="Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„Ø·Ø¨Ø§Ø¹Ø©" en="Print Method" />
             </span>
             <select
               value={printType}
               onChange={(event) => setPrintType(event.target.value as PrintTypeOption)}
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             >
               {printTypeOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -135,21 +135,21 @@ export function CustomOrderForm() {
 
           <label className="space-y-2">
             <span className="block text-sm text-zinc-300">
-              <LocaleText ar="الكمية" en="Quantity" />
+              <LocaleText ar="Ø§Ù„ÙƒÙ…ÙŠØ©" en="Quantity" />
             </span>
             <input
               min={1}
               type="number"
               value={quantity}
               onChange={(event) => setQuantity(Number(event.target.value) || 1)}
-              className="w-full rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+              className="w-full rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
             />
           </label>
         </div>
 
         <fieldset className="space-y-3">
           <legend className="text-sm text-zinc-300">
-            <LocaleText ar="المقاسات المطلوبة" en="Requested Sizes" />
+            <LocaleText ar="Ø§Ù„Ù…Ù‚Ø§Ø³Ø§Øª Ø§Ù„Ù…Ø·Ù„ÙˆØ¨Ø©" en="Requested Sizes" />
           </legend>
           <div className="flex flex-wrap gap-2">
             {sizeOptions.map((size) => {
@@ -174,7 +174,7 @@ export function CustomOrderForm() {
 
         <label className="space-y-2">
           <span className="block text-sm text-zinc-300">
-            <LocaleText ar="رفع التصميم (PNG, PDF, AI)" en="Upload Design (PNG, PDF, AI)" />
+            <LocaleText ar="Ø±ÙØ¹ Ø§Ù„ØªØµÙ…ÙŠÙ… (PNG, PDF, AI)" en="Upload Design (PNG, PDF, AI)" />
           </span>
           <input
             multiple
@@ -184,14 +184,14 @@ export function CustomOrderForm() {
               const selectedFiles = event.currentTarget.files;
               setFiles(selectedFiles ? Array.from(selectedFiles) : []);
             }}
-            className="w-full cursor-pointer rounded-2xl border border-dashed border-white/25 bg-[#0b0d12] px-4 py-3 text-sm text-zinc-300 file:ml-4 file:rounded-full file:border-0 file:bg-white/20 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white"
+            className="w-full cursor-pointer rounded-2xl border border-dashed border-white/25 bg-[#1C1C1C] px-4 py-3 text-sm text-zinc-300 file:ml-4 file:rounded-full file:border-0 file:bg-white/20 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-white"
           />
         </label>
 
         {files.length > 0 ? (
           <div className="rounded-2xl border border-white/10 bg-white/4 p-4 text-sm text-zinc-300">
             <p className="mb-2 text-xs tracking-[0.15em] text-zinc-400 uppercase">
-              <LocaleText ar="الملفات المرفوعة" en="Uploaded Files" />
+              <LocaleText ar="Ø§Ù„Ù…Ù„ÙØ§Øª Ø§Ù„Ù…Ø±ÙÙˆØ¹Ø©" en="Uploaded Files" />
             </p>
             <ul className="space-y-1">
               {files.map((file) => (
@@ -203,32 +203,32 @@ export function CustomOrderForm() {
 
         <label className="space-y-2">
           <span className="block text-sm text-zinc-300">
-            <LocaleText ar="ملاحظات إضافية" en="Additional Notes" />
+            <LocaleText ar="Ù…Ù„Ø§Ø­Ø¸Ø§Øª Ø¥Ø¶Ø§ÙÙŠØ©" en="Additional Notes" />
           </span>
           <textarea
             rows={5}
             placeholder={
               locale === "ar"
-                ? "مثال: طباعة أمامية كبيرة + شعار صغير بالخلف + تغليف لكل قطعة."
+                ? "Ù…Ø«Ø§Ù„: Ø·Ø¨Ø§Ø¹Ø© Ø£Ù…Ø§Ù…ÙŠØ© ÙƒØ¨ÙŠØ±Ø© + Ø´Ø¹Ø§Ø± ØµØºÙŠØ± Ø¨Ø§Ù„Ø®Ù„Ù + ØªØºÙ„ÙŠÙ Ù„ÙƒÙ„ Ù‚Ø·Ø¹Ø©."
                 : "Example: large front print + small back logo + individual packaging."
             }
-            className="w-full resize-none rounded-2xl border border-white/10 bg-[#0b0d12] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
+            className="w-full resize-none rounded-2xl border border-white/10 bg-[#1C1C1C] px-4 py-3 text-sm text-white outline-none transition focus:border-white/55"
           />
         </label>
       </section>
 
-      <aside className="space-y-6 rounded-3xl border border-white/10 bg-[#101521] p-6">
+      <aside className="space-y-6 rounded-3xl border border-white/10 bg-[#1C1C1C] p-6">
         <div>
           <p className="text-xs tracking-[0.2em] text-zinc-400 uppercase">
-            <LocaleText ar="تقدير تلقائي" en="Auto Estimate" />
+            <LocaleText ar="ØªÙ‚Ø¯ÙŠØ± ØªÙ„Ù‚Ø§Ø¦ÙŠ" en="Auto Estimate" />
           </p>
-          <h3 className="mt-2 font-heading text-4xl leading-none tracking-wide text-white">
+          <h3 className="mt-2 font-heading text-4xl leading-none tracking-wide text-[#E5E5E5]">
             {formatCurrency(pricing.total, locale)}
           </h3>
           <LocaleText
             as="p"
             className="mt-3 text-sm text-zinc-300"
-            ar="السعر تقديري قبل مراجعة الملف النهائي والمقاسات التفصيلية."
+            ar="Ø§Ù„Ø³Ø¹Ø± ØªÙ‚Ø¯ÙŠØ±ÙŠ Ù‚Ø¨Ù„ Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„Ù…Ù„Ù Ø§Ù„Ù†Ù‡Ø§Ø¦ÙŠ ÙˆØ§Ù„Ù…Ù‚Ø§Ø³Ø§Øª Ø§Ù„ØªÙØµÙŠÙ„ÙŠØ©."
             en="This is an estimate before final file review and detailed size breakdown."
           />
         </div>
@@ -236,37 +236,37 @@ export function CustomOrderForm() {
         <div className="space-y-3 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-zinc-200">
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="نوع المنتج" en="Product Type" />
+              <LocaleText ar="Ù†ÙˆØ¹ Ø§Ù„Ù…Ù†ØªØ¬" en="Product Type" />
             </span>
             <strong>{selectedProductLabel}</strong>
           </p>
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="طريقة الطباعة" en="Print Method" />
+              <LocaleText ar="Ø·Ø±ÙŠÙ‚Ø© Ø§Ù„Ø·Ø¨Ø§Ø¹Ø©" en="Print Method" />
             </span>
             <strong>{selectedPrintLabel}</strong>
           </p>
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="السعر للقطعة" en="Unit Price" />
+              <LocaleText ar="Ø§Ù„Ø³Ø¹Ø± Ù„Ù„Ù‚Ø·Ø¹Ø©" en="Unit Price" />
             </span>
             <strong>{formatCurrency(pricing.unitPrice, locale)}</strong>
           </p>
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="إجمالي قبل الرسوم" en="Subtotal" />
+              <LocaleText ar="Ø¥Ø¬Ù…Ø§Ù„ÙŠ Ù‚Ø¨Ù„ Ø§Ù„Ø±Ø³ÙˆÙ…" en="Subtotal" />
             </span>
             <strong>{formatCurrency(pricing.subtotal, locale)}</strong>
           </p>
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="رسوم تجهيز" en="Setup Fee" />
+              <LocaleText ar="Ø±Ø³ÙˆÙ… ØªØ¬Ù‡ÙŠØ²" en="Setup Fee" />
             </span>
             <strong>{formatCurrency(pricing.setupFee, locale)}</strong>
           </p>
           <p className="flex items-center justify-between">
             <span>
-              <LocaleText ar="خصم الكمية" en="Volume Discount" />
+              <LocaleText ar="Ø®ØµÙ… Ø§Ù„ÙƒÙ…ÙŠØ©" en="Volume Discount" />
             </span>
             <strong>{Math.round(pricing.discountRate * 100)}%</strong>
           </p>
@@ -276,21 +276,21 @@ export function CustomOrderForm() {
           type="submit"
           className="w-full rounded-full border border-white/40 bg-white/15 px-5 py-3 text-xs font-semibold tracking-[0.2em] text-white uppercase transition hover:bg-white/26"
         >
-          <LocaleText ar="تأكيد الطلب المبدئي" en="Confirm Initial Request" />
+          <LocaleText ar="ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø·Ù„Ø¨ Ø§Ù„Ù…Ø¨Ø¯Ø¦ÙŠ" en="Confirm Initial Request" />
         </button>
 
         {submitted ? (
           <LocaleText
             as="p"
             className="rounded-2xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-zinc-100"
-            ar="تم تسجيل الطلب التجريبي بنجاح. سيتم التواصل معك خلال ساعات العمل."
+            ar="ØªÙ… ØªØ³Ø¬ÙŠÙ„ Ø§Ù„Ø·Ù„Ø¨ Ø§Ù„ØªØ¬Ø±ÙŠØ¨ÙŠ Ø¨Ù†Ø¬Ø§Ø­. Ø³ÙŠØªÙ… Ø§Ù„ØªÙˆØ§ØµÙ„ Ù…Ø¹Ùƒ Ø®Ù„Ø§Ù„ Ø³Ø§Ø¹Ø§Øª Ø§Ù„Ø¹Ù…Ù„."
             en="Your sample request has been recorded successfully. We will contact you during business hours."
           />
         ) : (
           <LocaleText
             as="p"
             className="text-xs leading-6 text-zinc-400"
-            ar="بالضغط على التأكيد فأنت ترسل طلب مبدئي. فريق Fusion يراجع الملفات ثم يرسل عرض سعر نهائي."
+            ar="Ø¨Ø§Ù„Ø¶ØºØ· Ø¹Ù„Ù‰ Ø§Ù„ØªØ£ÙƒÙŠØ¯ ÙØ£Ù†Øª ØªØ±Ø³Ù„ Ø·Ù„Ø¨ Ù…Ø¨Ø¯Ø¦ÙŠ. ÙØ±ÙŠÙ‚ Fusion ÙŠØ±Ø§Ø¬Ø¹ Ø§Ù„Ù…Ù„ÙØ§Øª Ø«Ù… ÙŠØ±Ø³Ù„ Ø¹Ø±Ø¶ Ø³Ø¹Ø± Ù†Ù‡Ø§Ø¦ÙŠ."
             en="By confirming, you submit an initial request. The Fusion team reviews files and then sends the final quotation."
           />
         )}
@@ -298,3 +298,4 @@ export function CustomOrderForm() {
     </form>
   );
 }
+
